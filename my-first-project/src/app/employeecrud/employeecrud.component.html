@@ -1,0 +1,44 @@
+<div class="container">
+    <h1>Employee Management</h1>
+  
+    <!-- Input Form -->
+    <form> 
+     <div>
+        <label for="employeeName">Employee Name:</label> &nbsp;
+        <input type="text" id="employeeName" [(ngModel)]="employeeName" name="employeeName" required placeholder="Enter employee name"/>
+        <br>
+        <label for="employeeId">Employee Id:</label> &nbsp;
+        <input type="text" id="employeeId" [(ngModel)]="employeeId" name="employeeId" required placeholder="Enter emp id"/>
+        <br>
+        <label for="department">Department Name:</label> &nbsp;
+        <input type="text" id="department" [(ngModel)]="department" name="department" required placeholder="Enter department"/>
+        <br>
+        <button type="submit" (click)="saveEmployee()">Save</button>
+      </div> 
+     </form>
+  
+    <!-- Employee Table -->
+    <h2>Employees</h2>
+    <table border="1">
+      <thead>
+        <tr>
+          <th>Employee Id</th>
+          <th>Name</th>
+          <th>Department</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let emp of employees">
+          <td>{{ emp.empid }}</td>
+          <td>{{ emp.name }}</td>
+          <td>{{ emp.department }}</td>
+          <td>
+            <button type="button" (click)="updateEmployee(emp)">Edit</button>
+            <button type="button" (click)="deleteEmployee(emp)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
